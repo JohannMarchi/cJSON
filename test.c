@@ -32,35 +32,75 @@ void doit(char *text)
     cJSON *json;
 	
 	json=cJSON_Parse(text);
-	if (!json) {printf("Error before: [%s]\n",cJSON_GetErrorPtr());}
+    if (!json) {
+        printf("Error before: [%s]\n",cJSON_GetErrorPtr());
+    }
 	else
-	{
+    {
+
 		out=cJSON_Print(json);
 
-
-        //JMODIF
-        cJSON * format = cJSON_GetObjectItem(json,"format");
-        int framerate = cJSON_GetObjectItem(format,"frame rate")->valueint;
-
-        printf("%i\n",framerate);
+        //Retrieve the array of JSON elements
+        cJSON* Schedules_array = cJSON_GetObjectItem(json,"Schedules");
 
 
+        //At this level, we explore the array
 
+        int i=0;
+        cJSON * current_json_item;
+        while(1) {
+
+            //Retrieve the JSON element
+            current_json_item = cJSON_GetArrayItem(Schedules_array, i);
+            out=cJSON_Print(current_json_item);
+
+            if (out != NULL){
+
+                //Print the current JSON element
+                printf("%s\n",out);
+
+
+                //Retrieve + Print the DataMax from Current JSON element
+                char* test = cJSON_GetObjectItem(current_json_item,"DateMax")->valuestring;
+                printf("%s\n",test);
+
+
+
+                free(out);
+                i++;
+            }
+            else{
+                break;
+            }
+
+
+        }
+
+
+        /* Delete the root (takes care of everything else) */
         cJSON_Delete(json);
-        printf("%s\n",out);
-        free(out);
+
+
 	}
 }
 
 /* Read a file, parse, render back, etc. */
 void dofile(char *filename)
 {
-	FILE *f;long len;char *data;
-	
-	f=fopen(filename,"rb");fseek(f,0,SEEK_END);len=ftell(f);fseek(f,0,SEEK_SET);
-	data=(char*)malloc(len+1);fread(data,1,len,f);data[len]='\0';fclose(f);
+    FILE *f;
+    long len;
+    char *data;
+
+    // Get the text
+    f=fopen(filename,"rb");fseek(f,0,SEEK_END);len=ftell(f);fseek(f,0,SEEK_SET);
+    data=(char*)malloc(len+1);fread(data,1,len,f);data[len]='\0';fclose(f);
+
+
+    //Call the interesting function
+    //printf("%s\n", data);
     doit(data);
-	free(data);
+    free(data);
+
 }
 
 /* Used by some code below as an example datatype. */

@@ -1,10 +1,26 @@
-    {
-        "name": "Jack (\"Bee\") Nimble", 
-        "format": {
-            "type":       "rect", 
-            "width":      1920, 
-            "height":     1080, 
-            "interlace":  false, 
-            "frame rate": 24
+{
+    "Schedules": [
+        {
+            "DateMax": "9",
+            "DateMin": "1",
+            "Destination": "ROM",
+            "Group": "GROUP2",
+            "OfficeID": "FRACK32CC",
+            "Origin": "DUS",
+            "SDMax": "2",
+            "SDMin": "2",
+            "Timestamp": "17.00"
+        },
+        {
+            "DateMax": "9",
+            "DateMin": "1",
+            "Destination": "ROM",
+            "Group": "GROUP2",
+            "OfficeID": "FRACK32CC",
+            "Origin": "FRA",
+            "SDMax": "2",
+            "SDMin": "2",
+            "Timestamp": "17.00"
         }
-    }
+    ]
+}
