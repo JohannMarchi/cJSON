@@ -6,3 +6,8 @@ test
 *.swp
 *.patch
 tags
+cJSON.config
+cJSON.creator
+cJSON.creator.user
+cJSON.files
+cJSON.includes
