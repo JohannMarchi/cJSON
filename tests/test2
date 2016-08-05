@@ -4,10 +4,20 @@
             "DateMax": 9,
             "DateMin": 1,
             "Destination": "ROM",
-            "Groups": ["GROUP1", "GROUP2"],
+            "Groups": ["GROUP1"],
             "OfficeID": "FRACK32CC",
             "Origin": "DUS",
-            "StayDurations": [1,2]
+            "StayDurations": [-2]
+        },
+        {
+			"TimeStamp": "00.01",  
+            "DateMax": 9,
+            "DateMin": 1,
+            "Destination": "ROM",
+            "Groups": ["GROUP1"],
+            "OfficeID": "FRACK32CC",
+            "Origin": "FRA",
+            "StayDurations": [-1]
         },
         {
 			"TimeStamp": "00.01",  
@@ -17,7 +27,27 @@
             "Groups": ["GROUP1", "GROUP2"],
             "OfficeID": "FRACK32CC",
             "Origin": "FRA",
-            "StayDurations": [1,2]
+            "StayDurations": [1,2,3,4,5]
+        },
+        {
+			"TimeStamp": "00.01",  
+            "DateMax": 9,
+            "DateMin": 1,
+            "Destination": "ROM",
+            "Groups": ["GROUP1", "GROUP2"],
+            "OfficeID": "FRACK32CC",
+            "Origin": "FRA",
+            "StayDurations": [12,13,14,15,16]
+        },
+        {
+			"TimeStamp": "00.01",  
+            "DateMax": 9,
+            "DateMin": 1,
+            "Destination": "ROM",
+            "Groups": ["GROUP1", "GROUP2"],
+            "OfficeID": "FRACK32CC",
+            "Origin": "FRA",
+            "StayDurations": [27,28]
         }
 ]
 
