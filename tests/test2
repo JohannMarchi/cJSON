@@ -1,0 +1,23 @@
+[
+        {
+            "TimeStamp": "00.01",        
+            "DateMax": 9,
+            "DateMin": 1,
+            "Destination": "ROM",
+            "Groups": ["GROUP1", "GROUP2"],
+            "OfficeID": "FRACK32CC",
+            "Origin": "DUS",
+            "StayDurations": [1,2]
+        },
+        {
+			"TimeStamp": "00.01",  
+            "DateMax": 9,
+            "DateMin": 1,
+            "Destination": "ROM",
+            "Groups": ["GROUP1", "GROUP2"],
+            "OfficeID": "FRACK32CC",
+            "Origin": "FRA",
+            "StayDurations": [1,2]
+        }
+]
+

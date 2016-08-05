@@ -27,9 +27,9 @@
 /* Parse text to JSON, then render back to text, and print! */
 void doit(char *text)
 {
-    char *out;
-    char *out2;
-    cJSON *json;
+    char* out;
+    char* out2;
+    cJSON* json;
 	
 	json=cJSON_Parse(text);
     if (!json) {
@@ -41,7 +41,7 @@ void doit(char *text)
 		out=cJSON_Print(json);
 
         //Retrieve the array of JSON elements
-        cJSON* Schedules_array = cJSON_GetObjectItem(json,"Schedules");
+        //cJSON* Schedules_array = cJSON_GetObjectItem(json,"Schedules");
 
 
         //At this level, we explore the array
@@ -51,7 +51,7 @@ void doit(char *text)
         while(1) {
 
             //Retrieve the JSON element
-            current_json_item = cJSON_GetArrayItem(Schedules_array, i);
+            current_json_item = cJSON_GetArrayItem(json, i);
             out=cJSON_Print(current_json_item);
 
             if (out != NULL){
@@ -61,8 +61,25 @@ void doit(char *text)
 
 
                 //Retrieve + Print the DataMax from Current JSON element
-                char* test = cJSON_GetObjectItem(current_json_item,"DateMax")->valuestring;
-                printf("%s\n",test);
+                //char* test = cJSON_GetObjectItem(current_json_item,"SD")->valuestring;
+                //printf("%s\n",test);
+
+
+
+
+                cJSON* current_SD = cJSON_GetObjectItem(current_json_item, "StayDurations");
+                out=cJSON_Print(current_SD);
+                printf("%s\n",out);
+
+
+                //Pirnt the number of elements in the array "StayDurations"
+                int	 nb_StayDurations =  cJSON_GetArraySize(current_SD);
+                printf("%i\n", nb_StayDurations);
+
+                //int SDMin = cJSON_GetArrayItem(current_SD, 0)->valueint;
+                //int SDMax = cJSON_GetArrayItem(current_SD, 1)->valueint;
+                //printf("%d\n",SDMin);
+                //printf("%d\n",SDMax);
 
 
 
@@ -111,7 +128,7 @@ struct record {const char *precision;double lat,lon;const char *address,*city,*s
 int main (int argc, const char * argv[]) {
 
 	/* Parse standard testfiles: */
-    dofile("tests/test1");
+    dofile("tests/test2");
 
 	
 	return 0;
