@@ -65,11 +65,9 @@ void doit(char *text)
 				////Print the current JSON element
 				//printf("%s\n",out);
 
-
 				//Retrieve + Print the DataMax from Current JSON element
 				//char* test = cJSON_GetObjectItem(current_json_item,"SD")->valuestring;
 				//printf("%s\n",test);
-
 
 
 
@@ -92,15 +90,10 @@ void doit(char *text)
 					out=cJSON_Print(current_json_item);
 					printf("%s\n",out);
 				}
-
-
-				//int SDMin = cJSON_GetArrayItem(current_SD, 0)->valueint;
-				//int SDMax = cJSON_GetArrayItem(current_SD, 1)->valueint;
-				//printf("%d\n",SDMin);
-				//printf("%d\n",SDMax);
-
-
 				printf("-------------------\n");
+
+
+
 				free(out);
 
 			}
